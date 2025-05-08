@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鸟蛋连萌</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main62.css">
+    <script src="https://cdn.staticfile.net/jquery/1.10.2/jquery.min.js"></script>
+    <script src="./main62.js"></script>
+    <script src="./game.js" type="module"></script>
+</head>
+<body>
+<div class="base">
+    <div class="HomePage">
+        <div class="home-head">
+            <div class="home-head-empty"></div>
+<!--            设置一个空盒子预留顶部空间-->
+            <div class="home-head-title">
+                <img src="images/title.png" alt="">
+            </div>
+            <div class="home-head-birthday">
+                <img src="images/happy-birthday.png" alt="">
+            </div>
+        </div>
+        <div class="home-body"></div>
+        <div class="home-foot">
+            <div class="home-foot-f1">
+                <img src="images/adventure.png" alt=""id="home-foot-adventure">
+            </div>
+            <div class="home-foot-f2">
+                <img src="images/memory.png" alt=""id="home-foot-memory">
+            </div>
+            <div class="home-foot-f3">
+                    <img src="images/secret.png" alt="" id="secret">
+            </div>
+            <div class="home-foot-f4">
+                <img src="images/over.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="GamePage">
+        <div class="game-head">
+            <div class="game-head-title">
+                <img src="images/title.png" alt="">
+            </div>
+            <div class="game-head-subtitle">
+                <div class="subtitle-left">
+                    <img src="images/left.png" alt="">
+                </div>
+                <div class="subtitle-center">
+
+                </div>
+                <div class="subtitle-right">
+                    <img src="images/right.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="game-body">
+            <div class="game-body-cell">
+                <!-- 修改game-container部分 -->
+                <div class="game-container">
+                    <div id="gameCanvas" class="grid-container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="game-foot">
+            <div class="f1">
+                <img src="images/time/time-bg.png" alt=""style="height: 1%">
+            </div>
+            <div class="f2">
+                <img src="images/reset.png" alt="" id="reset_btn">
+                <img src="images/remind.png" alt="" id="remind_btn">
+                <img src="images/music.png" alt="" id="music_btn">
+                <img src="images/home.png" alt="" id="home">
+            </div>
+            <div class="f3">
+                <img src="images/over.png" alt="" style="height: 75%">
+            </div>
+        </div>
+    </div>
+    <div class="MapPage">
+        <div class="map-head">
+            <div class="map-head-text">
+                <img src="images/map-text.png" alt="">
+            </div>
+            <div class="map-head-title">
+                <img src="images/map-title.png" alt="">
+            </div>
+        </div>
+        <div class="map-body">
+            <div class="border-container">
+                <!-- <img src="images/border.png" alt="" class="border-bg"> -->
+                <div class="pieces-bg"></div>
+                <div class="pieces-grid" id="pieces-grid">
+                    <!-- 碎片会通过JavaScript动态生成 -->
+                </div>
+                <img src="images/border.png" alt="" class="border-bg">
+            </div>
+        </div>
+        <div class="map-foot">
+            <div class="map-foot-f1">
+                <img src="images/adventure.png" alt=""id="map-adventure">
+                <img src="images/video.png" alt=""id="map-video">
+            </div>
+            <div class="map-foot-f2">
+                <img src="images/over.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="VideoPage">
+        <div class="video-head">
+            <div class="video-head-text">
+                <img src="images/video-text.png" alt="">
+            </div>
+            <div class="video-head-title">
+                <img src="images/video-title.png" alt="">
+            </div>
+        </div>
+        <div class="video-body">
+            <img src="images/border.png" alt="" class="video-border">
+            <video id="birthdayVideo" class="video-player">
+                <source src="videos/birdy.mp4" type="video/mp4">
+                你的浏览器不支持 video 标签。
+            </video>
+        </div>
+        <div class="video-foot">
+            <div class="video-foot-f1">
+                <img src="images/back-home.png" alt=""id="video-back-home">
+                <a href="https://weibo.com/2933960793/5150052104277080">
+                    <img src="images/bonus.png" alt="">
+                </a>
+            </div>
+            <div class="video-foot-f2">
+                <img src="images/over.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!--添加新的彩蛋页面-->
+    <div class="SecretPage">
+        <div class="secret-head">
+            <div class="secret-head-text">
+                <img src="images/video-text.png" alt="">
+            </div>
+            <div class="secret-head-title">
+                <img src="images/title.png" alt="">
+            </div>
+        </div>
+        <div class="secret-body">
+            <img src="images/border.png" alt="" class="secret-border">
+            <img src="images/shaoniao.jpg" alt="" class="shaoniao">
+        </div>
+        <div class="secret-foot">
+            <div class="secret-foot-f1">
+                <img src="images/secret-home.png" alt="" id="secret-home">
+                <a href="https://weibo.com/2933960793/5150052104277080">
+                    <img src="images/secret-link.png" alt="">
+                </a>
+            </div>
+            <div class="secret-foot-f2">
+                <img src="images/over.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="GameSuccess">
+        <div class="game-success-cell">
+            <div class="success-head"></div>
+            <div class="success-body">
+                <div class="success-body-c1">
+                    <img src="images/success.png" alt="">
+                </div>
+                <div class="success-body-c2">
+                    <img src="images/success-home.png" alt="" id="success-home">
+                    <img src="images/next.png" alt="" id="success-next">
+                </div>
+                <div class="success-body-c3">
+                    <img src="images/success-text.png" alt="">
+                </div>
+            </div>
+            <div class="success-foot"></div>
+        </div>
+    </div>
+    <div class="GameOver">
+        <div class="game-over-cell">
+            <div class="over-head"></div>
+            <div class="over-body">
+                <div class="over-body-c1">
+                    <img src="images/game-over.png" alt="">
+                </div>
+                <div class="over-body-c2">
+                    <img src="images/success-home.png" alt="" id="gameover-home">
+                    <img src="images/reopen.png" alt="" id="gameover-replay">
+                </div>
+                <div class="over-body-c3">
+                    <img src="images/over-text.png" alt="">
+                </div>
+            </div>
+            <div class="over-foot"></div>
+        </div>
+
+    </div>
+
+<!--    <audio src="audio/jb.mp3" id="music" autoplay="autoplay" loop="loop" controls="controls"></audio>-->
+</div>
+<audio id="bgMusic" loop>
+    <source src="audio/jb.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 添加通关提示弹窗 -->
+<div class="CompletionDialog" style="display: none;">
+    <div class="completion-content">
+        <img src="images/success.png" alt="success">
+        <div class="completion-body">
+            <img src="images/success-home.png" alt="" id="complete-home">
+            <img src="images/video.png" alt="" id="complete-video">
+        </div>
+    </div>
+</div>
+</body>
+</html>

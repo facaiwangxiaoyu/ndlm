@@ -1,0 +1,128 @@
+文件夹 PATH 列表
+卷序列号为 A4DD-B09D
+C:.
+│  collectionManager.js
+│  game.js
+│  hint.js
+│  index62.html
+│  levelManager.js
+│  main62.css
+│  main62.js
+│  shuffle.js
+│  timer.js
+│  tree.txt
+│  
+├─audio
+│  │  jb.mp3
+│  │  kybsn.mp3
+│  │  sw.mp3
+│  │  ygs.mp3
+│  │  yszn.mp3
+│  │  
+│  └─collection copy
+└─images
+    │  active.png
+    │  adventure.png
+    │  back-home.png
+    │  background.png
+    │  border.png
+    │  egg.png
+    │  happy-birthday.png
+    │  home.png
+    │  left.png
+    │  map-text.png
+    │  map-title.png
+    │  memory.png
+    │  music.png
+    │  niaoshi.png
+    │  over.png
+    │  pic-bg.png
+    │  puzzle.png
+    │  remind.png
+    │  reset.png
+    │  right.png
+    │  title.png
+    │  video-text.png
+    │  video-title.png
+    │  video.png
+    │  
+    ├─bird
+    │  │  0.png
+    │  │  1.png
+    │  │  10.png
+    │  │  2.png
+    │  │  3.png
+    │  │  4.png
+    │  │  5.png
+    │  │  6.png
+    │  │  7.png
+    │  │  8.png
+    │  │  9.png
+    │  │  
+    │  └─.idea
+    │          .gitignore
+    │          bird.iml
+    │          misc.xml
+    │          modules.xml
+    │          workspace.xml
+    │          
+    ├─collection
+    │      1.png
+    │      10.png
+    │      11.png
+    │      12.png
+    │      13.png
+    │      14.png
+    │      15.png
+    │      16.png
+    │      17.png
+    │      18.png
+    │      19.png
+    │      2.png
+    │      20.png
+    │      21.png
+    │      22.png
+    │      23.png
+    │      24.png
+    │      25.png
+    │      26.png
+    │      27.png
+    │      28.png
+    │      29.png
+    │      3.png
+    │      30.png
+    │      31.png
+    │      32.png
+    │      33.png
+    │      34.png
+    │      35.png
+    │      36.png
+    │      37.png
+    │      38.png
+    │      39.png
+    │      4.png
+    │      40.png
+    │      5.png
+    │      6.png
+    │      7.png
+    │      8.png
+    │      9.png
+    │      
+    ├─number
+    │      0.png
+    │      1.png
+    │      2.png
+    │      3.png
+    │      4.png
+    │      5.png
+    │      6.png
+    │      7.png
+    │      8.png
+    │      9.png
+    │      
+    └─time
+            bird.png
+            time-bg.png
+            time-total.png
+            time.png
+            

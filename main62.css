@@ -1,0 +1,764 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100%;
+    overflow:hidden hidden;
+}
+/*网页背景底图格式*/
+.base{
+    width: auto;
+    height: 100%;
+    display: flex;
+    background:url("images/background.png") center no-repeat;
+    background-size: cover;
+}
+/*首页格式*/
+.HomePage{
+    width: 100%;
+    height: 100%;
+    /*display: none;*/
+    text-align: center;
+    /*background-color: red;*/
+}
+.home-head{
+    width: auto;
+    height: 30%;
+    /*background-color: yellow;*/
+}
+.home-head-empty{
+    width: auto;
+    height: 15%;
+}
+.home-head-title{
+    width: auto;
+    height:60%;
+}
+.home-head-birthday{
+    width: auto;
+    height:25%;
+}
+.home-body{
+    width: auto;
+    height: 30%;
+    /*background-color: green;*/
+}
+.home-foot{
+    width: auto;
+    height: 40%;
+    /*background-color: blue;*/
+}
+.home-foot-f1,.home-foot-f2,.home-foot-f3{
+    width: auto;
+    height: 25%;
+    padding-bottom: 2%;
+}
+.home-foot-f4{
+    width: auto;
+    height: 19%;
+}
+/*游戏页面：标题、游戏主体、其它按键*/
+.GamePage{
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+/*游戏页面头部包含大小标题*/
+.game-head{
+    width: auto;
+    height: 20%;
+    text-align: center;
+    /*background-color: #800000;*/
+}
+/*大标题：鸟蛋连萌*/
+.game-head-title{
+    width: auto;
+    height: 65%;
+    /*background-color: #640000;*/
+}
+/*小标题：第N关*/
+.game-head-subtitle{
+    width: auto;
+    height: 35%;
+    display: flex;
+}
+.subtitle-left{
+    width: 30%;
+    height: 100%;
+    /*background-color: #51dcf5;*/
+    text-align: right;
+}
+.subtitle-center{
+    width: 40%;
+    height: 100%;
+    /*background-color: #f5517f;*/
+}
+.subtitle-right{
+    width: 30%;
+    height: 100%;
+    /*background-color: #51dcf5;*/
+    text-align: left;
+}
+/*连连看主体*/
+.game-body{
+    width: auto;
+    height: 60%;
+    padding: 1% 5%;
+}
+/*连连看5*8格子存放*/
+.game-body-cell {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(247, 245, 246, 0.9);
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 5px;
+    padding: 5px;
+}
+
+.cell {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 1.5px;
+    box-sizing: border-box;
+}
+
+.cell .bg-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.cell .element-image {
+    position: relative;
+    width: 135%;
+    height:135%;
+    z-index: 2;
+}
+
+.cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cell:hover {
+    transform: scale(1.05);
+}
+
+.cell.active {
+    transform: scale(1.2);
+    filter: brightness(1.1);
+}
+
+#gameCanvas {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+#connectionCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    transform: translate3d(0,0,0); /* 启用硬件加速 */
+}
+
+.game-container {
+    position: relative;
+    width: 92%;
+    height: 92%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* 防止内容溢出 */
+}
+
+/*游戏页面底部：进度条、功能键、create by*/
+.game-foot{
+    width: auto;
+    height: 20%;
+    /*background-color: #51dcf5;*/
+}
+.f1{
+    width: auto;
+    height: 24%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-color: #f5517f;*/
+    text-align: center;
+}
+.f2{
+    width: auto;
+    height: 36%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-color: #61f551;*/
+}
+.f3{
+    width: auto;
+    height: 40%;
+    display: flex;
+    /*background-color: #f5517f;*/
+    justify-content: center;
+    align-items: center;
+}
+/*拼图页面，视频界面*/
+.MapPage{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: none;
+    /*background-color: black;*/
+}
+.VideoPage{
+    width: 100%;
+    height: 100%;
+    display: none;
+    text-align: center;
+}
+.map-head,.video-head{
+    width: auto;
+    height: 20%;
+}
+.map-head-text,.video-head-text{
+    width: auto;
+    height: 22%;
+}
+.map-head-title,.video-head-title{
+    width: auto;
+    height: 78%;
+}
+.map-body,.video-body{
+    width: auto;
+    height: 65%;
+}
+.map-foot,.video-foot{
+    width: auto;
+    height: 15%;
+}
+.map-foot-f1,.video-foot-f1{
+    width: auto;
+    height: 60%;
+}
+.map-foot-f2,.video-foot-f2{
+    width: auto;
+    height: 40%;
+}
+
+/* 提示效果样式 */
+@keyframes hintPulse {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    50% {
+        transform: scale(1.2);
+        filter: brightness(1.1);
+    }
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+.cell.hint {
+    animation: hintPulse 1.5s infinite ease-in-out;
+    z-index: 100;
+}
+
+.cell.hint .bg-image {
+    filter: brightness(1.1);
+}
+
+.cell.hint .element-image {
+    filter: brightness(1.05) saturate(1.1);
+}
+
+/* 游戏结束弹窗样式 */
+.GameOver {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.gameover-content {
+    width: 80%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffeb3b;
+    border-radius: 20px;
+    gap: 20px;
+}
+
+.gameover-content > img {
+    display: none;
+}
+
+.gameover-buttons {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.gameover-buttons button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+/* #gameover-home {
+    background-color: #2196F3;
+}
+
+#gameover-replay {
+    background-color: #4CAF50;
+} */
+
+/* 游戏成功弹窗样式 */
+.GameSuccess {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.success-content {
+    width: 80%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff3e0;
+    border-radius: 20px;
+    gap: 20px;
+}
+
+.success-title {
+    font-size: 24px;
+    color: #ff9800;
+    margin-bottom: 20px;
+}
+
+.piece-display {
+    width: 200px;
+    height: 200px;
+    margin: 20px 0;
+}
+
+.piece-display img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.next-level-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: #ff9800;
+    color: white;
+    cursor: pointer;
+}
+
+.success-buttons {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.success-buttons button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+/* #success-home {
+    background-color: #2196F3;
+}
+
+#success-next {
+    background-color: #4CAF50;
+} */
+
+.map-body {
+    position: relative;
+    width: auto;
+    height: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-body .border-container {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    overflow: visible;  /* 添加这一行，允许子元素溢出 */
+}
+
+.map-body .border-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* height: 100%; */
+    object-fit: contain;
+    pointer-events: none;  /* 确保边框不会阻挡点击 */
+    z-index: 3;
+}
+
+.map-body .pieces-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -48%);
+    width: 67%;
+    height: 91%;
+    background-color: rgba(255, 255, 255, 0.9);  /* 使用半透明白色测试层级 */
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.pieces-grid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 57.8%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: -100px;
+    z-index: 2;
+}
+
+.pieces-grid > * {
+    width: 500%;   /* 故意比格子大一点 */
+    height: 500%;
+    justify-self: center;
+    align-self: center;
+}
+
+.piece-item {
+    width: 200%;  /* 增加尺寸以便重叠 */
+    height: 193%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.1;
+    transition: opacity 0.3s ease;
+    margin: -5px;  /* 负margin也有助于创建重叠效果 */
+    position: relative;  /* 添加定位 */
+    z-index: 1;  /* 基础层级 */
+}
+
+.piece-item:hover {
+    z-index: 2;  /* 悬停时提升层级 */
+    transform: scale(1.1);  /* 悬停时稍微放大 */
+}
+
+.piece-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.piece-item.collected {
+    opacity: 1;
+}
+
+.piece-item img {
+    width: 90%;   /* 统一图片大小 */
+    height: 90%;
+    object-fit: contain;
+}
+.video-body {
+    width: auto;
+    height: 65%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-border {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.video-player {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    z-index: 1;
+}
+
+.GameSuccess{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-image: url("images/success-bg.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+}
+.success-body-cell{
+    display: inline-block;
+}
+.success-head{
+    height: 45%;
+    width: auto;
+}
+.success-foot{
+    height: 35%;
+    width: auto;
+}
+.success-body{
+    width: auto;
+    height: 20%;
+    overflow: visible;
+}
+.success-body-c1{
+    width:auto ;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.success-body-c2{
+    width:auto ;
+    height: 40%;
+    margin: 2% 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.success-body-c3{
+    width: auto;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.GameOver{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-image: url("images/over-bg.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+}
+.game-success-cell,.game-over-cell{
+    display: inline-block;
+}
+.over-head{
+    width: auto;
+    height: 45%;
+    /*background-color: red;*/
+}
+.over-foot{
+    width: auto;
+    height: 30%;
+    /*background-color: green;*/
+}
+.over-body{
+    width: auto;
+    height:25%;
+    overflow: visible;
+}
+.over-body-c1{
+    width: auto;
+    height:40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+.over-body-c2{
+    width:auto;
+    height: 40%;
+    margin: 2% 10% 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.over-body-c3{
+    width: auto;
+    height: 20%;
+    display: flex;
+    padding:0 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-body-c2 img, .over-body-c2 img {
+    cursor: pointer;
+}
+
+.completion-dialog button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.completion-dialog button:hover {
+    opacity: 0.8;
+}
+
+.CompletionDialog{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer; /* 提示点击关闭 */
+}
+
+.completion-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+    height:40%;
+    /* pointer-events: none; 防止点击内容区域时触发事件 */
+}
+
+.completion-content img {
+    width: 80%;
+    height:auto;
+    margin-bottom: 10px;
+}
+
+.completion-content p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+/*彩蛋页面*/
+.SecretPage{
+    width: 100%;
+    height: 100%;
+    display: none;
+    text-align: center;
+}
+.secret-head{
+    width: auto;
+    height: 20%;
+}
+.secret-head-text{
+    width: auto;
+    height: 22%;
+}
+.secret-head-title{
+    width: auto;
+    height: 78%;
+}
+.secret-body{
+    width: auto;
+    height: 65%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.secret-border {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+.secret-foot{
+    width: auto;
+    height: 15%;
+}
+.secret-foot-f1{
+    width: auto;
+    height: 60%;
+}
+.secret-foot-f2{
+    width: auto;
+    height: 40%;
+}
+.shaoniao{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+}
